@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyPath : MonoBehaviour
 {
-    WaveConfig waveConfig;
-    List<Transform> wayPoints;
+    WaveConfig waveConfig;                    // ссылка на другой класс
+    List<Transform> wayPoints;                // лист содержащий координаты
     int wayPointIndex = 0;
 
     // Start is called before the first frame update
@@ -21,9 +21,9 @@ public class EnemyPath : MonoBehaviour
         EnemyMove();
     }
 
-    public void SetWaveConfig(WaveConfig waveConfig)
+    public void SetWaveConfig(WaveConfig waveConfig) // создаем метод который должен возвращать нам определенную переменную определенного типа
     {
-        this.waveConfig = waveConfig;
+        this.waveConfig = waveConfig;  // приравниваем конкретно этой нашей переменной переменную которую получили
     }
 
 

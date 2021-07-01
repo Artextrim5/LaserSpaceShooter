@@ -19,10 +19,10 @@ public class WaveConfig : ScriptableObject
     }
     public List<Transform> GetWayPoints()
     {
-        var waveWayPoints = new List<Transform>();
-        foreach (Transform child in pathPrefab.transform)
+        var waveWayPoints = new List<Transform>();        // создаем переменную которая является листом координат
+        foreach (Transform child in pathPrefab.transform) // для каждого ребенка в префабе берем координату
         {
-            waveWayPoints.Add(child);
+            waveWayPoints.Add(child);                     // добавляем координату в лист
         }        
         return waveWayPoints;
     }
