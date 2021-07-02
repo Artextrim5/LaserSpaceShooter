@@ -5,13 +5,26 @@ using UnityEngine;
 public class EnemySpouner : MonoBehaviour
 {
     [SerializeField] List<WaveConfig> waveConfigs;
-    int startingWave = 0;
+    [SerializeField] int startingWave = 0;
+    [SerializeField] bool looping = false; // переменная для зацикливания
 
     // Start is called before the first frame update
-    void Start()
+    IEnumerator Start() // метод старт возвращает корутину
     {
-        var currentWave = waveConfigs[startingWave];
-        StartCoroutine(SpawnAllEnemiesInWave(currentWave));
+        do
+        {
+            yield return StartCoroutine(SpawnAllWaves()); // повторяем запуск корутины, пока looping правда
+        }
+        while (looping);
+    }
+
+    private IEnumerator SpawnAllWaves()
+    {
+        for ( int waveNumber = startingWave; waveNumber < waveConfigs.Count; waveNumber++)
+        {
+            var currentWave = waveConfigs[waveNumber];
+            yield return StartCoroutine(SpawnAllEnemiesInWave(currentWave));
+        }
     }
 
     private IEnumerator SpawnAllEnemiesInWave(WaveConfig waveConfig)
