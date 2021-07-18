@@ -21,15 +21,13 @@ public class Level : MonoBehaviour
 
     public void LoadGameOver()
     {
-        StartCoroutine(WaitAndLoud());
-        
+        StartCoroutine(WaitAndLoud());      
     }
 
     IEnumerator WaitAndLoud()
     {
         yield return new WaitForSeconds(dethDelay);
-        SceneManager.LoadScene("Game Over");
-        
+        SceneManager.LoadScene("Game Over");        
     }
 
     public void QuitGame()
