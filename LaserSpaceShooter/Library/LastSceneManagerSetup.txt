@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Levels/Game.unity
+- path: Assets/Levels/Game Over.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
